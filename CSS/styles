@@ -150,30 +150,32 @@ input {
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 2px 50px;
+    background-color: #a7a7a7;
     color: white;
 }
 
 .modal-body {
-    padding: 2px 16px;
+    padding: 2px 50px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 2px 50px;
+    background-color: #a7a7a7;
     color: white;
 }
 
 .close {
-    color: white;
+    color: rgb(0, 0, 0);
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
 .close:hover, .close:focus {
-    color: #000;
+    color: rgb(124, 123, 123);
     text-decoration: none;
     cursor: pointer;
 }
