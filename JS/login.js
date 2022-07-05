@@ -1,7 +1,12 @@
 const form = document.getElementById("form");
 const email = document.getElementById("email");
 const pass = document.getElementById("pass");
+let iniciaSesion = 0;
 
+let varBool = localStorage.getItem("iniciaSesion");
+if (varBool == 1) {
+    window.location.assign('./dashboard.html');
+}
 
 form.addEventListener("submit", function (e){
   e.preventDefault();
@@ -13,8 +18,12 @@ form.addEventListener("submit", function (e){
     .then(function(successStatus) {
       if (successStatus) {
         saveCredentialsToLocalStorage(credentials)
-        window.location.assign('/dashboard.html')
+        window.location.assign('./dashboard.html')
+        iniciaSesion = 1;
+        localStorage.setItem("iniciaSesion", iniciaSesion);
       } else {
+        iniciaSesion = 0;
+        localStorage.setItem("iniciaSesion", iniciaSesion);
         modal.style.display = "block";
       }
     })
@@ -54,10 +63,14 @@ function validateCredentials(credentials) {
         })
         .catch(function(error) {
           console.log(error);
+          iniciaSesion = 0;
+          localStorage.setItem("iniciaSesion", 0);
         });
     })
     .catch(function(error) {
       console.log(error);
+      iniciaSesion = 0;
+      localStorage.setItem("iniciaSesion", 0);
     });
 }
 
@@ -75,6 +88,8 @@ if (checkForLoginCredentialsInLocalStorage()) {
     validateCredentials(credentials)
       .then(function(successStatus) {
         if (successStatus) {
+          iniciaSesion = 1;
+          localStorage.setItem("iniciaSesion", iniciaSesion);
           window.location.assign('./dashboard.html')
         }
       })
