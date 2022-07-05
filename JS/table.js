@@ -1,3 +1,9 @@
+let key = localStorage.getItem("iniciaSesion")
+
+if (key === undefined || key === null || key == 0) {
+    window.location.assign('./index.html')
+}
+
 function validateCredentials(credentials) {
     return fetch("https://basic-server-one.vercel.app/login", {
       method: "POST",
