@@ -36,10 +36,15 @@ nav {
     margin-right: auto;
 }
 
-
-/*Estilos Main*/
-
-
+/*Estilos Table*/
+.table {
+    width: 100%;
+    
+  }
+  
+.table-th, th, td {
+    border: 1px solid;
+  }
 
 /*Estilos formulario Login*/
 
