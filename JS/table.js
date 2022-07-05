@@ -72,6 +72,9 @@ fetch('https://basic-server-one.vercel.app/users')
 .then(function(respuesta){
     return respuesta.json();
 })
+.then(function(respuestaJson){
+    tabla(respuestaJson);;
+});
 
  // Get the modal
     const modal = document.getElementById("myModal");
@@ -96,6 +99,4 @@ fetch('https://basic-server-one.vercel.app/users')
         modal.style.display = "none";
       }
     }
-.then(function(respuestaJson){
-    tabla(respuestaJson);;
-});
+
