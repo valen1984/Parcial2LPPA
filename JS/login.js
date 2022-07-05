@@ -27,6 +27,7 @@ form.addEventListener("submit", function (e){
 function saveCredentialsToLocalStorage(credentials) {
   localStorage.setItem("email", credentials.email);
   localStorage.setItem("pass", credentials.pass);
+  localStorage.setItem("loginsuccessful",true);
 }
 
 function validateCredentials(credentials) {
@@ -74,14 +75,14 @@ if (checkForLoginCredentialsInLocalStorage()) {
     validateCredentials(credentials)
       .then(function(successStatus) {
         if (successStatus) {
-          window.location.assign('/dashboard.html')
+          window.location.assign('./dashboard.html')
         }
       })
       .catch(function(error) {
         console.log(error);
       })
 } else {
-    if (window.location.origin == '/dashboard.html'){
+    if (window.location.origin == './dashboard.html'){
       window.location.assign('/index.html')
     }
 }
